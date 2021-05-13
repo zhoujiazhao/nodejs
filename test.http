@@ -1,0 +1,5 @@
+// test.http
+@url=http://zhoujiazhao:3344
+
+### 
+get {{url}}/users
