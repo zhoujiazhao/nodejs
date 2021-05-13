@@ -1,0 +1,22 @@
+{
+    "mysql": {
+        "host": "localhost",
+        "user": "root",
+        "password": "1233",
+        "database": "miai",
+        "tables": [
+            {
+                "name": "users",
+                "key": "(id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY COMMENT '用户编号', username VARCHAR(100) NOT NULL UNIQUE COMMENT '用户名', nickname VARCHAR(100) NOT NULL COMMENT '昵称',gender TINYINT NOT NULL DEFAULT 0 COMMENT '0未知，1男，2女',phone CHAR(11) UNIQUE COMMENT '电话',married TINYINT DEFAULT 0 COMMENT '0位置，1未婚，2已婚',hight FLOAT DEFAULT 160 COMMENT '身高',age TINYINT UNSIGNED DEFAULT 18 COMMENT '年龄',constellation VARCHAR(100) COMMENT '星座',education VARCHAR(64) COMMENT '学历',career VARCHAR(64) COMMENT '职业',salary INT DEFAULT 5000 COMMENT '薪水',native_place VARCHAR(64) COMMENT '籍贯',smoke TINYINT DEFAULT 0 COMMENT '0未知，1吸，2不吸',drink TINYINT DEFAULT 0 COMMENT '0未知，1喝，2不喝',current_city VARCHAR(64) COMMENT '当前城市',hobby VARCHAR(20) COMMENT '业余爱好',avatar BLOB COMMENT '头像')ENGINE=InnoDB DEFAULT CHARSET=utf8"
+            },
+            {
+                "name": "auth_user",
+                "key": "(id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY COMMENT '用户认证编号',user_id INT UNSIGNED  NOT NULL COMMENT '用户编号',identity_type ENUM('wechat','username','email','phone','weibo') NOT NULL UNIQUE COMMENT '认证类型',identifier VARCHAR(20) NOT NULL COMMENT '唯一标识',credential VARCHAR(1024) COMMENT '密码/token')ENGINE=InnoDB DEFAULT CHARSET=utf8"
+            },
+            {
+                "name": "target_couple",
+                "key": "(id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY COMMENT '未来另一半编号',user_id INT UNSIGNED  NOT NULL COMMENT '用户编号',age TINYINT UNSIGNED DEFAULT 18 COMMENT '年龄',hight FLOAT DEFAULT 160 COMMENT '身高',married TINYINT DEFAULT 0 COMMENT '0位置，1未婚，2已婚',education VARCHAR(64) COMMENT '学历',smoke TINYINT DEFAULT 0 COMMENT '0未知，1吸，2不吸',drink TINYINT DEFAULT 0 COMMENT '0未知，1喝，2不喝',hobby VARCHAR(20) COMMENT '业余爱好',life_attitude VARCHAR(64) COMMENT '生活态度',other VARCHAR(1024) COMMENT '其它')ENGINE=InnoDB DEFAULT CHARSET=utf8"
+            }
+        ]
+    }
+}

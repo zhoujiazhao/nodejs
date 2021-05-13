@@ -8,7 +8,7 @@ sudo npm i -g express express-generator mysql
 
 ## generate project
 ```
-express myserver
+express myserver --no-view
 cd mysever
 npm install
 
@@ -16,6 +16,17 @@ npm install
 npm start 
 or 
 node bin/www
+```
+
+## log level(app.js)
+ - combined: Standard Apache combined log output.
+ - common: Standard Apache common log output.
+ - dev: Concise output colored by response status for development use.
+ - short: Shorter than default, also including response time.
+ - tiny: The minimal output
+```
+# combined common dev short tiny
+app.use(logger('combined'));
 ```
 
 ## nodemon tool
@@ -66,11 +77,19 @@ npm run pm2
 
 ## mysql 授权, 改后密码为your_password
 ```
+grant all privileges on *.* to root@'%' identified by '123' with grant option;
+
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' IDENTIFIED BY 'your_password' WITH GRANT OPTION;
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'your_password' WITH GRANT OPTION;
 or 
 GRANT ALL ON nodejs.* to nodejs@'%' IDENTIFIED BY 'your_password';
 GRANT ALL ON nodejs.* to nodejs@localhost IDENTIFIED BY 'your_password';
+or
+CREATE USER 'root'@'localhost' IDENTIFIED BY '1233';
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost';
+CREATE USER 'root'@'%' IDENTIFIED BY '1233';
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
+
 ```
 
 
@@ -140,13 +159,13 @@ npm ERR!     /home/carey/Desktop/nodejs/myserver/npm-debug.log
 导致这个错误的原因是，目前，最新的mysql模块并未完全支持MySQL 8的“caching_sha2_password”加密方式，而“caching_sha2_password”在MySQL 8中是默认的加密方式。因此，下面的方式命令是默认已经使用了“caching_sha2_password”加密方式，该账号、密码无法在mysql模块中使用。
 
 ```
-mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY '123456';
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY 'your_password';
 Query OK, 0 rows affected (0.12 sec)
 ```
 - **解决方法：**
 解决方法是从新修改用户root的密码，并指定mysql模块能够支持的加密方式：
 ```
-mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'your_password';
 Query OK, 0 rows affected (0.12 sec)
 ```
 上述语句，显示指定了使用“mysql_native_password”的加密方式。这种方式是在mysql模块能够支持。
