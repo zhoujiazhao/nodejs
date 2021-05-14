@@ -1,7 +1,8 @@
-//注册或登录
-const getUid = '/api/portal/index/getUid',
-    //主域名
-    https = "http://www.zhoujiazhao.com:3344",
+
+//主域名
+const https = "http://www.zhoujiazhao.com:3344",
+    //注册或登录
+    getUid = '/api/portal/index/getUid',
     //活动支付结果
     returnPay = '/api/portal/activity/returnPay',
     //基本资料类型查看
@@ -98,3 +99,56 @@ const getUid = '/api/portal/index/getUid',
     spouse = '/api/portal/index/spouse',
     //验证码验证
     registerOne = '/api/user/register/registerOne'
+
+
+module.exports = {
+    getUid: getUid,
+    returnPay: returnPay,
+    registerBase: registerBase,
+    activityIndex: activityIndex,
+    activityDetails: activityDetails,
+    activityPay: activityPay,
+    barIndex: barIndex,
+    myHobbyDel: myHobbyDel,
+    barDetail: barDetail,
+    barMap: barMap,
+    activityNewest: activityNewest,
+    registerPost: registerPost,
+    registerRead: registerRead,
+    registerTwo: registerTwo,
+    index: index,
+    myCenter: myCenter,
+    start: start,
+    sms: sms,
+    registerExplain: registerExplain,
+    registerDescription: registerDescription,
+    select: select,
+    analysis: analysis,
+    analysisPost: analysisPost,
+    teacherPost: teacherPost,
+    contactUs: contactUs,
+    activityList: activityList,
+    myCheck: myCheck,
+    mailBoxOld: mailBoxOld,
+    mailBoxNew: mailBoxNew,
+    registerKnow: registerKnow,
+    myHobby: myHobby,
+    myHobbyAdd: myHobbyAdd,
+    imgUpdate: imgUpdate,
+    msgList: msgList,
+    letterLog: letterLog,
+    letterReply: letterReply,
+    MemberBase: MemberBase,
+    userInfo: userInfo,
+    myLove: myLove,
+    userPost: userPost,
+    hobby: hobby,
+    myLovePost: myLovePost,
+    MemberDetail: MemberDetail,
+    chat : chat,
+    payChat: payChat,
+    infoDel: infoDel,
+    letter: letter,
+    spouse: spouse,
+    registerOne : registerOne
+}
