@@ -22,10 +22,6 @@ var http = require('http')
 //   }
 
 // }); 
-const APPID = "xxxxxxxx"; //小程序appid
-const SECRET = "xxxxxxxxxxxxxxxxxx"; //小程序密钥
-JSCODE = ''; //微信登入生成 code
-WECHAT_AUTH_URL = 'https://api.weixin.qq.com/sns/jscode2session?appid={APPID}&secret={SECRET}&js_code={JSCODE}&grant_type=authorization_code'
 /* GET users listing. */
 router.post('/', function (req, res) {
   //console.log('req.headers: ', req.headers)

@@ -17,7 +17,7 @@ var TB_TARGET_COUPLE = 'target_couple'
 var KEY_USERS =`(
   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY COMMENT '用户编号',
   username VARCHAR(100) NOT NULL UNIQUE COMMENT '用户名',
-  nickname VARCHAR(100) NOT NULL COMMENT '昵称',
+  nickname VARCHAR(100) NULL COMMENT '昵称',
   gender TINYINT NOT NULL DEFAULT 0 COMMENT '0未知，1男，2女',
   phone CHAR(11) UNIQUE COMMENT '电话',
   married TINYINT DEFAULT 0 COMMENT '0位置，1未婚，2已婚',
@@ -37,7 +37,7 @@ var KEY_USERS =`(
 
 var KEY_AUTH_USER = `(
   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY COMMENT '用户认证编号',
-  user_id INT UNSIGNED  NOT NULL COMMENT '用户编号',
+  user_id INT UNSIGNED NOT NULL COMMENT '用户编号',
   identity_type ENUM('wechat','username','email','phone','weibo') NOT NULL UNIQUE COMMENT '认证类型',
   identifier VARCHAR(20) NOT NULL COMMENT '唯一标识',
   credential VARCHAR(1024) COMMENT '密码/token'
