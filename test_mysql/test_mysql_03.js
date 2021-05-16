@@ -38,7 +38,7 @@ var KEY_USERS =`(
 var KEY_AUTH_USER = `(
   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY COMMENT '用户认证编号',
   user_id INT UNSIGNED NOT NULL COMMENT '用户编号',
-  identity_type ENUM('wechat','username','email','phone','weibo') NOT NULL UNIQUE COMMENT '认证类型',
+  identity_type ENUM('wechat','username','email','phone','weibo') NOT NULL COMMENT '认证类型',
   identifier VARCHAR(20) NOT NULL COMMENT '唯一标识',
   credential VARCHAR(1024) COMMENT '密码/token'
   )ENGINE=InnoDB DEFAULT CHARSET=utf8`;
@@ -101,21 +101,21 @@ db.query( 'SHOW TABLES', function (error, results, fields) {
   console.log(results);
 });
 
-//// Drop tables(Dangerous operation)
-// db.query('DROP TABLE IF EXISTS ' + TB_USERS , function (error, results, fields) {
-//   if (error && err.number != Client.ERROR_DB_CREATE_EXISTS) throw error;
-//   // console.log(results);
-// });
+// Drop tables(Dangerous operation)
+db.query('DROP TABLE IF EXISTS ' + TB_USERS , function (error, results, fields) {
+  if (error && err.number != Client.ERROR_DB_CREATE_EXISTS) throw error;
+  // console.log(results);
+});
 
-// db.query('DROP TABLE IF EXISTS ' + TB_AUTH_USER , function (error, results, fields) {
-//   if (error && err.number != Client.ERROR_DB_CREATE_EXISTS) throw error;
-//   // console.log(results);
-// });
+db.query('DROP TABLE IF EXISTS ' + TB_AUTH_USER , function (error, results, fields) {
+  if (error && err.number != Client.ERROR_DB_CREATE_EXISTS) throw error;
+  // console.log(results);
+});
 
-// db.query('DROP TABLE IF EXISTS ' + TB_TARGET_COUPLE , function (error, results, fields) {
-//   if (error && err.number != Client.ERROR_DB_CREATE_EXISTS) throw error;
-//   //console.log(table_user);
-//   console.log(results);
-// });
+db.query('DROP TABLE IF EXISTS ' + TB_TARGET_COUPLE , function (error, results, fields) {
+  if (error && err.number != Client.ERROR_DB_CREATE_EXISTS) throw error;
+  //console.log(table_user);
+  console.log(results);
+});
 
 db.end();

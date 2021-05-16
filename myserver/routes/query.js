@@ -24,7 +24,6 @@ let query = function (sql, values) {
             reject(err)
           } else {
             //results作为数据操作后的结果，fields作为数据库连接的一些字段
-            //results作为数据操作后的结果，fields作为数据库连接的一些字段
             resolve(res)
           }
           ///停止链接数据库，必须再查询语句后，要不然一调用这个方法，就直接停止链接，数据操作就会失败

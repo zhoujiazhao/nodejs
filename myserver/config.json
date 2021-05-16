@@ -11,7 +11,7 @@
             },
             {
                 "name": "auth_user",
-                "key": "(id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY COMMENT '用户认证编号',user_id INT UNSIGNED  NOT NULL COMMENT '用户编号',identity_type ENUM('wechat','username','email','phone','weibo') NOT NULL UNIQUE COMMENT '认证类型',identifier VARCHAR(20) NOT NULL COMMENT '唯一标识',credential VARCHAR(1024) COMMENT '密码/token')ENGINE=InnoDB DEFAULT CHARSET=utf8"
+                "key": "(id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY COMMENT '用户认证编号',user_id INT UNSIGNED  NOT NULL COMMENT '用户编号',identity_type ENUM('wechat','username','email','phone','weibo') NOT NULL COMMENT '认证类型',identifier VARCHAR(20) NOT NULL COMMENT '唯一标识',credential VARCHAR(1024) COMMENT '密码/token')ENGINE=InnoDB DEFAULT CHARSET=utf8"
             },
             {
                 "name": "target_couple",
